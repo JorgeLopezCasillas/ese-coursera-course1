@@ -36,69 +36,82 @@
  * @return <Add Return Informaiton here>
  */
 
+/* Global Variables */
+  extern unsigned char Minimun;
+  extern unsigned char Maximun;
+  extern unsigned int Mean;
+  extern unsigned int Median;
+  extern unsigned char *SortedArray;
 
 /* Name:        print_statistics()
  * Callsby:     main()
  * Calls:       None
+ * Param:       u8Array[], u8length
  * Return:      None
  * Description: A function that prints the statistics of an array including minimum, maximum, mean, and median.
  */
-extern void print_statistics()
+extern void print_statistics( void );
 
 
 /* Name:        print_array()
  * Callsby:     main()
  * Calls:       None
+ * Param:       Array[], length
  * Return:      None
  * Description: Given an array of data and a length, prints the array to the screen.
  */
-extern void print_array(uint8_t u8Array[], uint8_t u8Length);
+extern void print_array(unsigned char Array[], unsigned char length);
 
 
 /* Name:        find_median()
  * Callsby:     main()
  * Calls:       None
- * Return:      u8MedianValue
+ * Param:       Array[], length
+ * Return:      MedianValue
  * Description: Given an array of data and a length, returns the median value.
  */
-extern unsigned char find_median(uint8_t u8Array[], uint8_t u8Length);
+extern unsigned char find_median(unsigned char Array[], unsigned char length);
 
 
 /* Name:        find_mean()
  * Callsby:     main()
  * Calls:       None
- * Return:      u8meanValue
+ * Param:       Array[], length
+ * Return:      MeanValue
  * Description: GGiven an array of data and a length, returns the mean.
  */
-extern unsigned char find_mean(uint8_t u8Array[], uint8_t u8Length);
+extern unsigned char find_mean(unsigned char Array[], unsigned char length);
 
 
 /* Name:        find_maximum()
  * Callsby:     main()
  * Calls:       None
- * Return:      u8MaximumValue
+ * Param:       Array[], length
+ * Return:      MaximumValue
  * Description: Given an array of data and a length, returns the maximum.
  */
-extern unsigned char find_maximum(uint8_t u8Array[], uint8_t u8Length);
+extern unsigned char find_maximum(unsigned char Array[], unsigned char length);
 
 
 /* Name:        find_minimum()
  * Callsby:     main()
  * Calls:       None
+ * Param:       u8Array[], u8length
  * Return:      u8minimunValue
  * Description: Given an array of data and a length, returns the minimum.
  */
-extern unsigned char find_minimum(uint8_t u8Array[], uint8_t u8Length);
+extern unsigned char find_minimum(unsigned char u8Array[], unsigned char u8length);
 
 
 /* Name:        sort_array()
  * Callsby:     main()
  * Calls:       None
- * Return:      u8Array[]
+ * Param:       Array[], length
+ * Return:      Array[]
  * Description: Given an array of data and a length, sorts the array from largest to smallest. 
  *              (The zeroth Element should be the largest value, and the last element (n-1) should be the smallest value.)
  */
-extern unsigned char sort_array(uint8_t u8Array[], uint8_t u8Length);
+extern unsigned char *sort_array(unsigned char Array[], unsigned char length);
 
 
 

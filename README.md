@@ -1,7 +1,9 @@
 
+Introduction to Embedded Systems Software and Development Environments course on coursera
+
 @Author: JORGE LOPEZ
 
-Repository 
-https://github.com/afosdick/ese-coursera-course1.git
+My Repository 
+https://github.com/JorgeLopezCasillas/ese-coursera-course1.git
 
 
