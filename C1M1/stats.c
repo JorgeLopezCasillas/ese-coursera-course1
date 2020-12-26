@@ -48,10 +48,10 @@ void main() {
   printf("\nThe elements that contain this array are:");
   print_array(test, SIZE);
   SortedArray = sort_array(test, SIZE);
-  Minimun = find_minimum( test, SIZE);
-  Maximun = find_maximum(test, SIZE);
-  Mean = find_mean(test, SIZE);
-  Median = find_median(test, SIZE);
+  Minimun = find_minimum( SortedArray, SIZE);
+  Maximun = find_maximum(SortedArray, SIZE);
+  Mean = find_mean(SortedArray, SIZE);
+  Median = find_median(SortedArray, SIZE);
 
   printf("\nSORTED ARRAY:");
   print_array(test, SIZE);
@@ -110,8 +110,8 @@ unsigned char find_median(unsigned char Array[], unsigned char length)
 unsigned char find_mean(unsigned char Array[], unsigned char length)
 {
   int Temp;
-  unsigned int Sum;
-  unsigned int MeanValue;
+  short Sum;
+  int MeanValue;
    // Calculing the sum
   for ( int i = 0; i < length; i++ ) {
     Temp =  Array[i];
@@ -119,7 +119,7 @@ unsigned char find_mean(unsigned char Array[], unsigned char length)
   }
 
   // Calculate the Mean Value
-  MeanValue = Sum / length;
+  MeanValue = Sum ;
 
  return MeanValue;
 }
