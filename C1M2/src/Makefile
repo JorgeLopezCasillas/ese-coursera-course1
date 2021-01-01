@@ -17,7 +17,15 @@
 # excutable output files for two different platforms.Platforms are host machine
 # and msp432.
 #
-# Use: make [TARGET] [PLATFORM-OVERRIDES]
+# Use: <FILE>.o - builds <FILE>.o object file
+#      <FILE>.i - builds <FILE>.i preprocessed output file
+#      <FILE>.asm - builds <FILE>.s assembly file
+#      <FILE>.dep - builds <FILE>.d dependency file
+#
+#      compile-all - Compile all object files, but DO NOT link
+#      build - builds and links all source files
+#      all - same as build
+#      clean - removes all generated files
 #
 # Build Targets:
 #      <Put a description of the supported targets here>
@@ -50,7 +58,7 @@ endif
 
 ifeq ($(PLATFORM),MSP432)
 
-  # Architectures Specific Flags
+  # Architectures Specific Flags to MSP432
   LINKER_FILE = -T msp432p401r.lds
   LINKER_FILE_PATH = -L ../
   CPU =cortex-m4 
@@ -58,12 +66,7 @@ ifeq ($(PLATFORM),MSP432)
   SPECS =nosys.specs
   OTHER_ARCH_FLAGS = -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16
   
-# Compiler Flags and Defines MSP432
-  SOURCES = main.c \
-	  memory.c \
-	  interrupts_msp432p401r_gcc.c \
-	  startup_msp432p401r_gcc.c \
-	  system_msp432p401r.c
+# Compiler Flags and Defines
   CC = arm-none-eabi-gcc
   CPPFLAGS = -DMSP432 $(INCLUDES)
   CFLAGS = $(CO_CFLAGS) $(OTHER_ARCH_FLAGS) -mcpu=$(CPU) -march=$(ARCH) --specs=$(SPECS) 
@@ -74,9 +77,7 @@ ifeq ($(PLATFORM),MSP432)
 	
 endif
 
-
-#making variables for .o files , .d files, .asm files , .i files
-
+#Making variables for .o files , .d files, .asm files , .i files
 OBJS = $(SOURCES:.c=.o)
 DEPS = $(SOURCES:.c=.d)
 ASMS = $(SOURCES:.c=.asm)
@@ -93,6 +94,10 @@ PRES = $(SOURCES:.c=.i)
 #Generate the object file for all c-source files (but do not link) by specifying the object file you want to compile.
 %.o: %.c
 	$(CC) -c $< $(CFLAGS) $(CPPFLAGS) $(INCLUDES) -o $@
+
+#Generate the dependecy files
+%.dep : %.c
+	$(CC) -c $^ $(CPPFLAGS) $(CFLAGS) $(INCLUDES) -MD   
 
 #Compile all object files
 .PHONY: compile-all
