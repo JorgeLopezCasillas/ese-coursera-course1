@@ -59,6 +59,7 @@ ifeq ($(PLATFORM),MSP432)
 # Architectures Specific Flags to MSP432
   LINKER_FILE = -T msp432p401r.lds
   LINKER_FILE_PATH = -L ../
+  CPU =cortex-m4 
   ARCH =armv7e-m
   OTHER_ARCH_FLAGS = -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16
   
