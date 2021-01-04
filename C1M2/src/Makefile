@@ -11,13 +11,14 @@
 #
 #------------------------------------------------------------------------------
 # @author: Jorge Lopez
-# @date : 26 December, 2020
+# @date : 04 January, 2021
 #
 # makefile to genrate preprocessor, assembly, object, dependency, map and
 # excutable output files for two different platforms.Platforms are host machine
 # and msp432.
 #
 # Use: make [TARGET] [PLATFORM-OVERRIDES]
+#
 # Build Targets:
 #      <FILE>.asm - builds <FILE>.s assembly file
 #      <FILE>.o - builds <FILE>.o object file
@@ -27,7 +28,6 @@
 #      build - builds and links all source files
 #      all - same as build
 #      clean - removes all generated files
-#
 #
 # Platform Overrides:
 #           PLATFORM = HOST   - compile for host machine using gcc.
