@@ -17,14 +17,13 @@
 # excutable output files for two different platforms.Platforms are host machine
 # and msp432.
 #
+# Use: make [TARGET] [PLATFORM-OVERRIDES]
 # Build Targets:
-#      
-# Use: <FILE>.o - builds <FILE>.o object file
-#      <FILE>.i - builds <FILE>.i preprocessed output file
 #      <FILE>.asm - builds <FILE>.s assembly file
+#      <FILE>.o - builds <FILE>.o object file
+#      <FILE>.i - builds <FILE>.i preprocessed output file
 #      <FILE>.dep - builds <FILE>.d dependency file
-#
-#      compile-all - Compile all object files, but DO NOT link
+#      compile-all - Compile all object files, but does not link
 #      build - builds and links all source files
 #      all - same as build
 #      clean - removes all generated files
@@ -111,10 +110,7 @@ compile-all: $(OBJS)
 
 #Compile all object files and link into a final executable.
 .PHONY: build
-build: all
-
-.PHONY: all
-all: $(TARGET).out
+build: $(TARGET).out
 
 $(TARGET).out: $(OBJS)
 	$(CC) $(OBJS) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS) -o $@
